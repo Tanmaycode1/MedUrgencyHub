@@ -49,3 +49,12 @@ Our dual-sectioned approach focuses on effective resource utilization for critic
 ## Conclusion
 
 In the ever-evolving healthcare landscape, time is of the essence. Our curated solution addresses the time constraints faced by both patients and hospitals through innovative technology and streamlined processes. By implementing a secure Generalized Medical Card, optimizing hospital resource access, incorporating predictive algorithms for busy month prediction, and integrating AI models for pneumonia classification, we strive to enhance patient care, improve efficiency, and ensure better allocation of critical resources. This approach heralds a new era of time-efficient healthcare services that benefit all stakeholders involved.
+
+
+##How to run files?
+
+###For ML Model:
+Install the given libraries in the requirements.txt in the ml folder and just run both the models named as app.py and visualize_months.py
+
+###For other files:
+Just install the requirements.txt in the different folder and just run main.py!
