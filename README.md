@@ -1,4 +1,4 @@
-# Time-Saving Solutions in Healthcare: A Curated Approach
+# MedUrgencyHub- Time-Saving Solutions in Healthcare: A Curated Approach
 
 ## Introduction
 
