@@ -1,5 +1,8 @@
 # MedUrgencyHub- Time-Saving Solutions in Healthcare: A Curated Approach
 
+## Deployed site(only ml models left to deploy, is there in github itself)
+https://medurgencyhub.onrender.com/
+
 ## Introduction
 
 In the fast-paced world of healthcare, optimizing time is crucial for both patients and medical professionals. This document presents a comprehensive solution aimed at reducing time constraints in medical processes for both patients and hospitals. By utilizing technology and streamlined processes, we aim to enhance patient care, increase efficiency, and improve resource allocation.
@@ -54,7 +57,7 @@ In the ever-evolving healthcare landscape, time is of the essence. Our curated s
 ## How to run files?
 
 ### For ML Model:
-Install the given libraries in the requirements.txt in the ml folder and just run both the models named as app.py and visualize_months.py
+Install the given libraries in the requirements.txt in the ml folder and just run both the models named as app.py and visualize_months.py, for app.py use the keras_model.h5 file to access the pre-trained model
 
 ### For other files:
 Just install the requirements.txt in the different folder and just run main.py!
