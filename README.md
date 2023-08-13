@@ -35,7 +35,7 @@ Our solution addresses the challenges of accessing and managing medical images l
 
 Incorporating AI-based predictive modeling allows hospitals to forecast personalized busy months based on historical patient data and trends. This empowers hospitals to allocate resources, staff, and facilities more effectively, ensuring that patient care remains consistent even during peak periods.
 
-### AI Model for Pneumonia Classification using X-Rays
+### AI Model for Diseases (Pneumonia as of now) Classification using X-Rays
 
 By integrating an AI-powered classification model, hospitals can efficiently diagnose pneumonia through X-ray images. This model analyzes entire folders of X-rays and accurately identifies pneumonia cases, saving radiologists' time and improving diagnosis accuracy. This innovation accelerates the diagnostic process and enables medical professionals to focus on more complex cases.
 
