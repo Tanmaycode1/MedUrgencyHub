@@ -4,42 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Details</title>
-    <link rel = "stylesheet" href = "../static/css/details.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/details.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-{% include "alert.html" %}
-<h1> <font size = "7">Enter Your Details</font></h1>
-        <img src="../static/img/detail.png" class="hjhjh">
-    <div class = "main">
-    <form method="POST">
-        <label for = "address">Residential Address</label>
-        <input type = "text" id = "address" name="address" placeholder = "Residential Address" required/><br/>
-        <label for = "emergency">Emergency Contact</label>
-        <input type = "tel" id = "emergency" name="emergency" placeholder="Emergency Contact" required/><br/>
-        <label for = "aadhaar">Aadhaar Number</label>
-        <input type="text" id="aadhaar" name="aadhar" placeholder = "Aadhaar Number" required/>
-        <label for = "age">Age</label>
-        <input type = "text" id = "age" name="age" placeholder = "Age"/>
-         <label for = "age">Gender</label>
-        <input type = "text" id = "gender" name="gender" placeholder = "Gender"/>
+    {% include "alert.html" %}
+    
+    <div class="container">
+        <div class="details-card">
+            <div class="form-header">
+                <h1>Patient Information</h1>
+                <div class="subtitle">Please provide your medical details for better care</div>
+            </div>
 
-        <label for = "bloodgroup">Blood Group</label>
-        <input type = "text" id = "bloodgroup" name="bloodgroup" placeholder = "Blood Group"/><br/>
+            <form method="POST">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <div class="section-title">
+                        <span class="material-symbols-rounded">person</span>
+                        Personal Information
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" placeholder="Enter age" required>
+                        </div>
 
-        <label for = "allergies">Any Allergies (mention if any)</label>
-        <input type = "text" id = "allergies" name="allergies" placeholder = "Allergies"/><br/>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <input type="text" id="gender" name="gender" placeholder="Enter gender" required>
+                        </div>
 
-        <label for = "disease">Are you currently suffering from any disease? (Mention if yes)</label>
-        <input type = "text" id = "disease" name="disease" placeholder = "Disease"/>
-        <center>
+                        <div class="form-group">
+                            <label for="bloodgroup">Blood Group</label>
+                            <input type="text" id="bloodgroup" name="bloodgroup" placeholder="Enter blood group" required>
+                        </div>
+                    </div>
+                </div>
 
-        <button type = "submit" class="butt">Submit</button>
-        </center>
-    </form>
+                <!-- Contact Information -->
+                <div class="form-section">
+                    <div class="section-title">
+                        <span class="material-symbols-rounded">contact_page</span>
+                        Contact Information
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="address">Residential Address</label>
+                            <input type="text" id="address" name="address" placeholder="Enter complete address" required>
+                        </div>
 
-</div>
+                        <div class="form-group">
+                            <label for="emergency">Emergency Contact</label>
+                            <input type="tel" id="emergency" name="emergency" placeholder="Emergency number" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="aadhaar">Aadhaar Number</label>
+                            <input type="text" id="aadhaar" name="aadhar" placeholder="12-digit number" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Information -->
+                <div class="form-section">
+                    <div class="section-title">
+                        <span class="material-symbols-rounded">medical_information</span>
+                        Medical Information
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="allergies">Allergies (if any)</label>
+                            <input type="text" id="allergies" name="allergies" placeholder="List allergies">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="disease">Current Medical Conditions</label>
+                            <input type="text" id="disease" name="disease" placeholder="List conditions">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit">Save Details</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <script>
+                    Swal.fire({
+                        title: "{{ category.title() }}!",
+                        text: "{{ message }}",
+                        icon: "{{ category }}" == "danger" ? "error" : "{{ category }}",
+                        confirmButtonColor: '#2563eb'
+                    });
+                </script>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 </body>
 </html>

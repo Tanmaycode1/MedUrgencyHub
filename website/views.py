@@ -6,13 +6,18 @@ from . import db
 views = Blueprint('views', __name__)
 data = []
 
+
 @views.route('/')
-@login_required
 def home():
+    return render_template("home.html",data = data)
+
+@views.route('/profile')
+@login_required
+def profile():
     ff = hospitals(name="kukreja",key="qazxswedcvfr")
     db.session.add(ff)
     db.session.commit()
-    return render_template("home.html",user=current_user)
+    return render_template("profile.html",user=current_user)
 
 
 @views.route('/details',methods=["GET","POST"])
@@ -39,7 +44,7 @@ def details():
           db.session.add(detail)
           db.session.commit()
           flash("details stored successfully",category="success")
-          return  redirect(url_for("views.home"))
+          return  redirect(url_for("views.profile"))
 
     return render_template("details.html",user=current_user)
 

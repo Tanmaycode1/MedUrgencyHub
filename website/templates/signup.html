@@ -4,216 +4,106 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Sign Up - Medical Portal</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .main {
-            width: 100%;
-            max-width: 1200px;
-            padding: 2rem;
-        }
-
-        .sign-up-card-container {
-            background: white;
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            display: flex;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .main-image {
-            flex: 1;
-            position: relative;
-            min-height: 600px;
-            background: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .main-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0;
-        }
-
-        .sign-up-container {
-            flex: 1;
-            padding: 3rem;
-        }
-
-        .header {
-            margin-bottom: 2.5rem;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            color: #1a1a1a;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .header div {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        .sign-up-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .form-item {
-            position: relative;
-        }
-
-        .form-item span {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #666;
-        }
-
-        .form-item input {
-            width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-item input:focus {
-            border-color: #4a90e2;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
-        }
-
-        .form-item input::placeholder {
-            color: #999;
-        }
-
-        button {
-            background: #4a90e2;
-            color: white;
-            border: none;
-            padding: 1rem;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-
-        button:hover {
-            background: #357abd;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
-        }
-
-        @media (max-width: 768px) {
-            .sign-up-card-container {
-                flex-direction: column;
-            }
-
-            .main-image {
-                min-height: 300px;
-            }
-
-            .sign-up-container {
-                padding: 2rem;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-        }
-
-        /* Custom alert styles */
-        .alert {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            background: white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-    </style>
+    <link rel="icon" href="../static/images/Finman_copy-removebg-preview.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    {% include "alert.html" %}
-    <div class="main">
-        <div class="sign-up-card-container">
-            <div class="main-image">
-                <img src="https://t3.ftcdn.net/jpg/04/67/37/12/360_F_467371208_2cBvWthKecbY7PPW7rxmz99pKSkJPDPm.jpg" alt="Sign up illustration">
+    <div class="sign-up-card-container">
+        <div class="main-image">
+            <img src="https://img.freepik.com/free-vector/medical-video-call-consultation-illustration_88138-415.jpg?w=1200" 
+                 alt="Medical consultation illustration">
+        </div>
+
+        <div class="sign-up-container">
+            <div class="header">
+                <h1>Create Account</h1>
+                <div>Join our medical platform today</div>
             </div>
-            <div class="sign-up-container">
-                <div class="header">
-                    <h1>Welcome!</h1>
-                    <div>Create your account to get started</div>
+
+            <form method="POST" class="sign-up-form">
+                <div class="form-item">
+                    <input type="tel" 
+                           id="phone" 
+                           name="phone" 
+                           placeholder="Mobile number" 
+                           maxlength="100" 
+                           required 
+                           autofocus>
+                    <span class="material-symbols-rounded">smartphone</span>
                 </div>
-                <form method="POST">
-                    <div class="sign-up-form">
-                        <div class="form-item">
-                            <span class="material-symbols-rounded">call</span>
-                            <input type="tel" id="phone" name="phone" placeholder="Mobile number" maxlength="100" required autofocus>
-                        </div>
-                        <div class="form-item">
-                            <span class="material-symbols-rounded">person</span>
-                            <input type="text" id="name" name="name" placeholder="Full name" maxlength="100" required>
-                        </div>
-                        <div class="form-item">
-                            <span class="material-symbols-rounded">mail</span>
-                            <input type="email" id="email" name="email" placeholder="Email address" maxlength="100" required>
-                        </div>
-                        <div class="form-item">
-                            <span class="material-symbols-rounded">lock</span>
-                            <input type="password" id="password" name="password" placeholder="Password" maxlength="100" required>
-                        </div>
-                        <button type="submit">Create Account</button>
-                    </div>
-                </form>
-            </div>
+
+                <div class="form-item">
+                    <input type="text" 
+                           id="name" 
+                           name="name" 
+                           placeholder="Full name" 
+                           maxlength="100" 
+                           required>
+                    <span class="material-symbols-rounded">person</span>
+                </div>
+
+                <div class="form-item">
+                    <input type="email" 
+                           id="email" 
+                           name="email" 
+                           placeholder="Email address" 
+                           maxlength="100" 
+                           required>
+                    <span class="material-symbols-rounded">mail</span>
+                </div>
+
+                <div class="form-item">
+                    <input type="password" 
+                           id="password" 
+                           name="password" 
+                           placeholder="Create password" 
+                           maxlength="100" 
+                           required>
+                    <span class="material-symbols-rounded">lock</span>
+                </div>
+
+                <button type="submit" id="submit">Create Account</button>
+
+                <div class="form-item-footer">
+                    Already have an account?
+                    <a href="/login" id="account">Sign In</a>
+                </div>
+            </form>
+
+            <a href="/" class="home-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                     width="30" 
+                     height="32" 
+                     viewBox="0 0 24 24" 
+                     stroke-width="1.5" 
+                     fill="none" 
+                     stroke-linecap="round" 
+                     stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                    <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                    <rect x="10" y="12" width="4" height="4" />
+                </svg>
+            </a>
         </div>
     </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <script>
+                    Swal.fire({
+                        title: "{{ category.title() }}!",
+                        text: "{{ message }}",
+                        icon: "{{ category }}" == "danger" ? "error" : "{{ category }}",
+                        confirmButtonColor: '#2563eb'
+                    });
+                </script>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 </body>
 </html>
