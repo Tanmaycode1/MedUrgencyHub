@@ -53,7 +53,6 @@ def getinfo(userid):
 
       if request.method == "POST"  :
           key = request.form.get("key")
-          print(key)
           hospital = hospitals.query.filter_by(key=key).first()
 
           if hospital:
@@ -62,6 +61,8 @@ def getinfo(userid):
                global data
                data = [user.name,user.patientdetail[0].address,user.patientdetail[0].emerphone,user.patientdetail[0].gender,user.patientdetail[0].aadharno,user.patientdetail[0].bloodgroup,user.patientdetail[0].disease,user.patientdetail[0].allergies,user.patientdetail[0].age,user.phone]
                return redirect(url_for("views.info"))
+          else:
+                flash("Invalid key",category="error")
       return render_template("keyverify.html")
 
 

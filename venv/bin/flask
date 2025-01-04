@@ -1,4 +1,6 @@
-#!/Users/tanmayarora/Desktop/tanmay/MedUrgencyHub/venv/bin/python3.9
+#!/bin/sh
+'''exec' "/Users/tanmayarora/Desktop/tanmay personal projects/MedUrgencyHub/venv/bin/python3.9" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys

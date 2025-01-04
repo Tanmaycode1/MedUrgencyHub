@@ -60,7 +60,7 @@ def signup():
             db.session.commit()
             login_user(new_user,remember=True)
             id = current_user.id
-            g = qrcode.make("https://medurgencyhub.onrender.com/getinfo/{}".format(id))
+            g = qrcode.make("https://tanmayexe123.pythonanywhere.com/getinfo/{}".format(id))
             name = '{}.png'.format(id)
             g.save(name)
             shutil.move(fr'{name}','website/static/')
