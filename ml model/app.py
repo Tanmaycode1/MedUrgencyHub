@@ -6,7 +6,9 @@ import streamlit as st
 
 model = load_model("keras_model.h5", compile=False)
 
-class_names = ["0", "1"]  # Make sure the class names match the order in your model
+class_names = ["0", "1"]  
+
+# Make sure the class names match the order in your models
 
 def classify_image(img):
     # Check if the image is in RGB format
