@@ -71,4 +71,3 @@ If you have any questions, suggestions, or would like to contribute, feel free t
 - **Email:** [tanmayarora118@gmail.com](mailto:tanmayarora118@gmail.com)
 - **LinkedIn:** [Tanmay Arora](https://www.linkedin.com/in/tanmaycode1)
 
-Thank you for exploring MedUrgencyHub - where time meets healthcare efficiency!
